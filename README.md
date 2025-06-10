@@ -1,9 +1,10 @@
 # 사용기술
 - React
-- Typescript
-- Nextjs
-- Supabse
-- Vercel
+- Typescript 
+-	Tailwind CSS
+- Nextjs(프레임웍)
+- Supabse(DB & 백엔드)
+- Vercel(배포)
 
 
 # 프로젝트 세팅
@@ -14,7 +15,8 @@
  yarn create next-app calendar-booking-app --typescript
 ```
 
-## Supabase
+
+## Supabase(Postgres + Auth)
 
 ```
 yarn add @supabase/supabase-js
@@ -42,6 +44,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 ```
 yarn add date-fns react-calendar
+yarn add -D tailwindcss postcss autoprefixer
 ```
 
 ## Github
@@ -54,3 +57,6 @@ git commit -m "init"
 git push -u origin main
 ```
 
+## Vercel
+
+- 위 레파지토리 연결 후 배포 가능

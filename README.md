@@ -48,7 +48,7 @@ yarn add date-fns react-calendar
 
 ```
 git init
-git remote add origin https://github.com/yourname/my-calendar-app.git
+git remote add origin https://github.com/mignonwhale/calendar-booking-app.git
 git add .
 git commit -m "init"
 git push -u origin main

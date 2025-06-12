@@ -2,8 +2,8 @@
 
 import moment from "moment"
 import "moment-timezone"
-import { useCallback, useState } from "react"
-import { Calendar, momentLocalizer } from "react-big-calendar"
+import {useCallback, useState} from "react"
+import {Calendar, momentLocalizer} from "react-big-calendar"
 import "react-big-calendar/lib/css/react-big-calendar.css"
 import BookingForm from "@/components/BookingForm";
 import BookingView from "@/components/BookingView";
@@ -64,16 +64,26 @@ interface Event {
 export default function MyCalendar() {
   const [myEvents, setEvents] = useState<Event[]>(events)
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
-  const [isEditing/*, setIsEditing*/] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
 
     // 추가
   const handleSelectSlot = useCallback(
+      // (event: Event) => {
+      //   setSelectedEvent(event) // 선택된 이벤트 상태 업데이트
+      //   setIsEditing(true)}, []
+
     ({ start, end }: { start:Date, end:Date }) => {
       const title = window.prompt("New Event name")
       if (title) {
-        setEvents((prev) => [...prev, { start, end, title }])
+        const now = new Date()
+        setEvents((prev) => [...prev,
+          { start,
+            end,
+            title : `${title} ${now.getHours().toString().padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")}`
+          }])
       }
+      // setIsEditing(false)
     },
     [setEvents]
   )
@@ -81,10 +91,12 @@ export default function MyCalendar() {
   // 상세
   const handleSelectEvent = useCallback((event: Event) => {
     setSelectedEvent(event) // 선택된 이벤트 상태 업데이트
+    setIsEditing(false)
   }, [])
 
   // 모달 닫기
   const closeModal = useCallback(() => {
+    console.log("모달 닫기")
     setSelectedEvent(null)
     
   }, [])
@@ -108,7 +120,7 @@ export default function MyCalendar() {
       {selectedEvent && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 sm:p-6">
           <div className="bg-white rounded-lg w-full max-w-[90vw] sm:max-w-lg md:max-w-xl p-4 sm:p-6 md:p-8">
-            <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 md:mb-6">예약 상세</h2>
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 sm:mb-4 md:mb-6">{isEditing ?  '예약등록':'예약상세' } </h2>
             {isEditing ? (
                 <BookingForm onClose={closeModal}  />
             ) : (

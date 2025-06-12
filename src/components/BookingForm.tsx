@@ -48,7 +48,6 @@ export default function BookingForm({onClose}: { onClose: () => void }) {
                            className="w-full p-2 border border-gray-300 rounded text-sm sm:text-base"/>
                 </div>
                 <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3">
-
                     <button
                         onClick={onClose}
                         className="px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-300 rounded text-sm sm:text-base hover:bg-gray-400 transition">

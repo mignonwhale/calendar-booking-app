@@ -63,7 +63,8 @@ export default function CreateAccount() {
             router.push("/calendar");
 
         } catch (e) {
-            setError(e);
+            console.error("Error creating account:", e);
+            // setError(e);
         } finally {
             setIsLoading(false);
         }

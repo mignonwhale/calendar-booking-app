@@ -64,7 +64,7 @@ interface Event {
 export default function MyCalendar() {
   const [myEvents, setEvents] = useState<Event[]>(events)
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null)
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing/*, setIsEditing*/] = useState(false);
 
 
     // 추가

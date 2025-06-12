@@ -27,7 +27,8 @@ export default function BookingForm({onClose}: { onClose: () => void }) {
         // setIsEditing(false)
         // // Supabase 연동 예시:
         // // const { error } = await supabase.from("events").update(updatedEvent).eq("id", selectedEvent.id)
-    }, [editForm])
+    // }, [editForm])
+}, [])
 
     return (
             <div className="space-y-3 sm:space-y-4">

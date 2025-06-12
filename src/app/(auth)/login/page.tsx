@@ -40,6 +40,7 @@ export default function Login() {
             // setIsLoading(true);
 
         } catch (e) {
+            console.error("Error creating account:", e);
             // setError(e);
         }
         setIsLoading(false);

@@ -1,5 +1,5 @@
-import MyCalendar from "@/components/MyCalendar";
 import type {Metadata} from "next";
+import {MyCalendar} from "@/components/MyCalendar";
 
 export const metadata: Metadata = {
     title: "Calendar"
